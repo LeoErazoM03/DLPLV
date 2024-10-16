@@ -11,31 +11,30 @@ header {
   color: white;
   padding: 20px;
   font-size: 2em;
-  /* Eliminé la altura fija para permitir que el contenido defina la altura */
   display: flex;
-  justify-content: space-between; /* Distribuye el título a la izquierda y el menú a la derecha */
-  align-items: center; /* Centra verticalmente */
-  width: 100%; /* Asegura que el header abarque todo el ancho */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 /* Estilos del menú */
 .menu {
   display: flex;
-  justify-content: flex-end; /* Coloca los enlaces a la derecha */
-  gap: 15px; /* Espacio entre los botones */
-  flex-grow: 1; /* Asegura que el menú ocupe todo el espacio restante */
+  justify-content: flex-end;
+  gap: 15px;
+  flex-grow: 1;
 }
 
 /* Estilos para los botones principales del menú */
 .menu > .dropdown > .dropbtn,
 .menu > a.dropbtn {
-  background-color: #FF000A; /* Rojo por defecto */
-  color: white; /* Texto blanco */
+  background-color: #FF000A;
+  color: white;
   padding: 10px 15px;
   text-decoration: none;
   border-radius: 10px;
   transition: background-color 0.3s, color 0.3s;
-  border: none; /* Quita el borde */
+  border: none;
   cursor: pointer;
   display: inline-block;
 }
@@ -43,8 +42,8 @@ header {
 /* Efecto hover para los botones principales del menú */
 .menu > .dropdown > .dropbtn:hover,
 .menu > a.dropbtn:hover {
-  background-color: white; /* Se vuelve blanco al pasar el mouse */
-  color: #FF000A; /* Texto rojo */
+  background-color: white;
+  color: #FF000A;
 }
 
 /* Contenedor del menú desplegable */
@@ -59,11 +58,11 @@ header {
   position: absolute;
   background-color: white;
   min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
-  top: 100%; /* Posiciona el dropdown justo debajo del botón */
-  left: 0; /* Alinea a la izquierda */
+  top: 100%;
+  left: 0;
 }
 
 /* Estilo para los enlaces dentro del menú desplegable */
@@ -88,54 +87,68 @@ header {
 
 /* Estilo para el contenedor del espacio publicitario */
 .advertisement {
-  background-color: #ddd; /* Color de fondo para el espacio publicitario */
-  padding: 40px 20px; /* Aumenta el padding superior/inferior */
-  text-align: center; /* Centra el contenido dentro del espacio publicitario */
-  border: 2px solid #ddd; /* Borde opcional alrededor del espacio publicitario */
-  width: 90%; /* Ancho del 90% de la página, dejando margen a los lados */
-  margin: 20px auto; /* Centro horizontal con margen superior/inferior */
-  box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+  background-color: #ddd;
+  padding: 40px 20px;
+  text-align: center;
+  border: 2px solid #ddd;
+  width: 90%;
+  margin: 20px auto;
+  box-sizing: border-box;
 }
 
 /* Estilo para el contenedor de noticias */
 .news-container {
-  display: flex;
-  flex-direction: column; /* Las noticias siguen en columna */
-  gap: 20px; /* Espacio entre cada noticia */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Crea una cuadrícula flexible */
+  gap: 20px; /* Espacio entre las noticias */
   padding: 10px;
   width: 100%;
-  max-width: 900px; /* Reduce el ancho máximo del contenedor */
-  margin: 0 auto; /* Centra el contenedor */
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto;
 }
 
 /* Estilo para cada noticia individual */
 .news-item {
   display: flex;
-  align-items: center; /* Alinea la imagen y la descripción verticalmente al centro */
-  border: 2px solid #FF000A; /* Borde rojo */
+  flex-direction: column; /* Alineación vertical en móviles o pantallas pequeñas */
+  align-items: center; /* Centra la imagen y el texto */
   padding: 15px;
   border-radius: 8px;
   background-color: #f9f9f9;
-  width: 100%; /* El ancho ocupa el contenedor padre */
-  max-width: 700px; /* Tamaño máximo de cada noticia */
-  margin: 0 auto; /* Centra cada noticia */
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
 }
 
 /* Estilo para las imágenes dentro de las noticias */
 .img-responsive {
-  width: 250px; /* Fija el tamaño de la imagen */
-  height: 250px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
-  margin-right: 15px; /* Espacio entre la imagen y la descripción */
 }
-
 
 /* Estilo para la descripción de la noticia */
 .news-description {
-  flex-grow: 1; /* Hace que la descripción ocupe el espacio restante */
+  padding: 15px 0;
   font-size: 1em;
   color: #333;
   line-height: 1.4em;
-  text-align: left; /* Texto alineado a la izquierda */
+  text-align: center;
+}
+
+/* Mejora la responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+  .news-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .img-responsive {
+    width: 100%;
+    height: auto;
+  }
+
+  .news-description {
+    text-align: center;
+  }
 }
